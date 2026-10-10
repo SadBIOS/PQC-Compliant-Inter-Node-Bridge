@@ -100,7 +100,6 @@ function check_deps() {
     return 0
 }
 
-
 function data_integrity() {
     case "$1" in
         calc)
