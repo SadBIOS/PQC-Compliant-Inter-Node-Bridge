@@ -252,6 +252,7 @@ while [[ $# -gt 0 ]]; do
 
         --build-all)
             build_and_install
+            rm -vrf "${SCRIPT_ROOT}"/openss*/ 2>/dev/null
             exit 0
         ;;
     esac
