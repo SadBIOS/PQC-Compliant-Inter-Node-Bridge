@@ -1,4 +1,4 @@
-# PQC Compliant System Setup Tool
+# PQC Compliant Point to Point Network Setup Utility
 
 <div align="center">
   <h3 style="margin: 0; padding: 0;">The Alphabet Boys Can See Everything</h3>
