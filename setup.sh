@@ -219,8 +219,8 @@ function build_openssh() {
 function build_and_install() {
     if check_deps; then
         echo -e "\033[32mAll dependencies are installed.\033[0m"
-        build_openssh
         build_openssl
+        build_openssh
         exit 0
     else
         echo -e "\033[31mSome dependencies are missing.\033[0m"
