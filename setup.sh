@@ -240,7 +240,7 @@ while [[ $# -gt 0 ]]; do
             exit 0
         ;;
 
-        --ins-deps-ofln)
+        --inst-deps-ofln)
             offline
             exit 0
         ;;
