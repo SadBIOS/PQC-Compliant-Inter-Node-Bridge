@@ -178,6 +178,7 @@ function build_openssl() {
         sudo mv /usr/bin/openssl /usr/bin/openssl.bak
         sudo ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl
         cd ..
+        rm -vrf "${OPENSSL_SOURCE_CODE%.tar.gz}"
     fi
 }
 
@@ -218,6 +219,7 @@ function build_openssh() {
         sudo make install
         sudo systemctl restart ssh
         cd ..
+        rm -vrf "${OPENSSH_SOURCE_CODE%.tar.gz}"
     fi
 }
 
