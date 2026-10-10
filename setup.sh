@@ -68,6 +68,12 @@ function makepkg_cache() {
         fi
 
         find $SCRIPT_ROOT -maxdepth 1 -type f -name 'depsys-custpkg-*.tar.gz' -exec mv -v {} "$PKG_ARCH" \;
+
+        : > "HASHLIB"
+        wget -P "$SCRIPT_ROOT" -O "$OPENSSL_SOURCE_CODE" "$OPENSSL_URL"
+        data_integrity calc "$OPENSSL_SOURCE_CODE"
+        wget -P "$SCRIPT_ROOT" -O "$OPENSSH_SOURCE_CODE" "$OPENSSH_URL"
+        data_integrity calc "$OPENSSH_SOURCE_CODE"
     fi
 }
 
