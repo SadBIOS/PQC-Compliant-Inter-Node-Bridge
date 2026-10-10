@@ -141,12 +141,17 @@ function build_openssl() {
         read -r -p "$OPENSSL_SOURCE_CODE Does Not Exist or Corrupted. Want to Re-Download it? [y/n] " answer
         case "$answer" in
             y|Y)
-                if wget -P "$SCRIPT_ROOT" -O "$OPENSSL_SOURCE_CODE" "$OPENSSL_URL"; then
-                    data_integrity calc "$OPENSSL_SOURCE_CODE"
-                    echo -e "\033[32mOpenSSL downloaded successfully.\033[0m"
+                if conn_stat; then
+                    if wget -P "$SCRIPT_ROOT" -O "$OPENSSL_SOURCE_CODE" "$OPENSSL_URL"; then
+                        data_integrity calc "$OPENSSL_SOURCE_CODE"
+                        echo -e "\033[32mOpenSSL downloaded successfully.\033[0m"
+                    else
+                        echo "OpenSSL download failed."
+                        exit 0
+                    fi 
                 else
-                    echo "OpenSSL download failed."
-                    exit 0
+                    echo -e "\033[31Machine is offline.\033[0m"
+                    exit 1
                 fi
             ;;
             
@@ -178,12 +183,17 @@ function build_openssh() {
         read -r -p "$OPENSSH_SOURCE_CODE Does Not Exist or Corrupted. Want to Re-Download it? [y/n] " answer
         case "$answer" in
             y|Y)
-                if wget -P "$SCRIPT_ROOT" -O "$OPENSSH_SOURCE_CODE" "$OPENSSH_URL"; then
-                    data_integrity calc "$OPENSSH_SOURCE_CODE"
-                    echo -e "\033[32mOpenSSH downloaded successfully.\033[0m"
+                if conn_stat; then
+                    if wget -P "$SCRIPT_ROOT" -O "$OPENSSH_SOURCE_CODE" "$OPENSSH_URL"; then
+                        data_integrity calc "$OPENSSH_SOURCE_CODE"
+                        echo -e "\033[32mOpenSSH downloaded successfully.\033[0m"
+                    else
+                        echo "OpenSSH download failed."
+                        exit 0
+                    fi
                 else
-                    echo "OpenSSH download failed."
-                    exit 0
+                    echo -e "\033[31Machine is offline.\033[0m"
+                    exit 1
                 fi
             ;;
             
@@ -209,6 +219,8 @@ function build_openssh() {
 function build_and_install() {
     if check_deps; then
         echo -e "\033[32mAll dependencies are installed.\033[0m"
+        build_openssh
+        build_openssl
         exit 0
     else
         echo -e "\033[31mSome dependencies are missing.\033[0m"
