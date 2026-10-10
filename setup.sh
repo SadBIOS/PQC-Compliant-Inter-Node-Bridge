@@ -182,7 +182,7 @@ function build_openssh() {
                     data_integrity calc "$OPENSSH_SOURCE_CODE"
                     echo -e "\033[32mOpenSSH downloaded successfully.\033[0m"
                 else
-                    echo "OpenSSL download failed."
+                    echo "OpenSSH download failed."
                     exit 0
                 fi
             ;;
@@ -195,7 +195,14 @@ function build_openssh() {
     fi
     
     if check_version "$OPENSSH_SOURCE_CODE"; then
-
+        tar -xzvf "$OPENSSH_SOURCE_CODE"
+        cd "${OPENSSH_SOURCE_CODE%.tar.gz}"
+        ./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-ssl-dir=/usr/local/ssl LDFLAGS="-Wl,-rpath,/usr/local/ssl/lib64"
+        make -j $(nproc)
+        ./ssh -V
+        sudo make install
+        sudo systemctl restart ssh
+        cd ..
     fi
 }
 
@@ -205,13 +212,6 @@ function build_and_install() {
         exit 0
     else
         echo -e "\033[31mSome dependencies are missing.\033[0m"
-        if conn_stat; then
-            build_openssh
-            build_openssl
-        else
-            echo -e "\033[31Machine is offline.\033[0m"
-            exit 1
-        fi
         exit 1
     fi
 }
