@@ -134,7 +134,6 @@ function check_version() {
     fi
 }
 
-
 function build_openssl() {
     if data_integrity match "$OPENSSL_SOURCE_CODE"; then
         echo -e "\033[32mLocal OpenSSL Checksum Passed.\033[0m"
@@ -159,12 +158,18 @@ function build_openssl() {
     fi
 
     if check_version "$OPENSSL_SOURCE_CODE"; then
-        echo "hocche mama"
-    else
-        echo "hoynaimama"
+        tar -xzvf "$OPENSSL_SOURCE_CODE"
+        cd "${OPENSSL_SOURCE_CODE%.tar.gz}"
+        ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+        make -j $(nproc)
+        sudo make install
+        echo "/usr/local/ssl/lib64" | sudo tee /etc/ld.so.conf.d/openssl-4.0.conf
+        sudo ldconfig
+        sudo mv /usr/bin/openssl /usr/bin/openssl.bak
+        sudo ln -s /usr/local/ssl/bin/openssl /usr/bin/openssl
+        cd ..
     fi
 }
-
 
 function build_openssh() {
     if data_integrity match "$OPENSSH_SOURCE_CODE"; then
@@ -190,9 +195,7 @@ function build_openssh() {
     fi
     
     if check_version "$OPENSSH_SOURCE_CODE"; then
-        echo "hocche mama"
-    else
-        echo "hoynaimama"
+
     fi
 }
 
