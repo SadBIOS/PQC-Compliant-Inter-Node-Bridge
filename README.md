@@ -7,4 +7,10 @@ This repository is mainly designed to add custom/latest builds of **OpenSSH** an
   <p style="margin: 0; padding: 0;">Now they are coming for your mind</p>
 </div>
 <br>
-A controlled "low security" i.e. non PQC compliant entrypoint
+
+> [!WARNING]
+> A controlled "low security" i.e. non PQC compliant entrypoint has been introduced on purpose as unfortunately Microsoft Windows<sup>®</sup> does not feature a fully capable OpenSSH and LibreSSL build with our required features.
+> 
+> **AND YES THIS IS A SECURITY VULNERABILITY**
+>
+> Well what do you expect from **MicroSlop**
