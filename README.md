@@ -10,6 +10,6 @@ This repository is mainly designed to add custom/latest builds of **OpenSSH** an
 > [!WARNING]
 > A controlled "low security" i.e. non PQC compliant entrypoint has been introduced on purpose as unfortunately Microsoft Windows<sup>®</sup> does not feature a fully capable OpenSSH and LibreSSL build with our required features.
 > 
-> **AND YES THIS IS A SECURITY VULNERABILITY**
+> **YES THIS IS A SECURITY VULNERABILITY**
 >
 > Well what do you expect from **MicroSlop**
