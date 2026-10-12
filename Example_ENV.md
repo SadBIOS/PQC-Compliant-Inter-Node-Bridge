@@ -281,7 +281,7 @@ sudo chmod -v 600 /home/username/.ssh/authorized_keys
 
 <br>
 
-# Setting up Microsoft Winows<sup>®</sup> Entry Point
+# Setting up the Microsoft Winows<sup>®</sup> Entry Point
 
 Generate keys on the windows client
 
