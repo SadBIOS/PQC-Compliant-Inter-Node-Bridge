@@ -71,3 +71,7 @@ scp ~/.ssh/id_mldsa44_ed25519.pub username@<NODE_B_IP>:/home/username/nodeA.pub
 ```
 
 Append it to `authorized_keys`
+
+```bash
+ssh username@<NODE_B_IP> "cat /home/username/nodeA.pub >> ~/.ssh/authorized_keys && rm /home/username/nodeA.pub"
+```
