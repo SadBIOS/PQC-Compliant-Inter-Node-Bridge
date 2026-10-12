@@ -70,3 +70,9 @@ Install Dependencies
 sudo apt install -y build-essential zlib1g-dev libssl-dev libpam0g-dev libselinux1-dev wget micro perl tar pkg-config ca-certificates rsync
 ```
 
+<br>
+
+Download OpenSSH and OpenSSL™ Source code
+```bash
+wget https://github.com/openssl/openssl/releases/download/openssl-4.0.3/openssl-4.0.3.tar.gz; wget https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.6p1.tar.gz
+```
