@@ -273,3 +273,10 @@ sudo chmod -v 600 /home/username/.ssh/authorized_keys
 
 <br>
 
+# Special Settings and Considerations
+
+- Comment out `GSSAPIAuthentication yes` in `/etc/ssh/ssh_config`
+- SCP commands do not have special requirements just replace `node_a_user@node_a_IP` to `nodea` and vice versa
+- To use `rsync`, `--no-perms` must be added. Or else permissions get messed up and subsequent ssh sessions fail. also, replace node_a_user@node_a_IP to nodea vice versa
+
+<br>
