@@ -128,3 +128,8 @@ sudo ldconfig -v
 ```
 
 <br>
+
+Finally as a precaution back up the existing OpenSSL™ binary and create a symbolic link that points the standard systems command to the newly compiled version
+```bash
+sudo mv -v /usr/bin/openssl /usr/bin/openssl.bak; sudo ln -sv /usr/local/ssl/bin/openssl /usr/bin/openssl
+```
