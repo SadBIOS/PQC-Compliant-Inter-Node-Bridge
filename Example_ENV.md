@@ -115,3 +115,74 @@ sudo systemctl restart ssh
 ```
 
 <br>
+
+# Setting Up Node B
+
+> [!NOTE]
+> Refer to previous for using `scp` to move keys around. 
+
+Generating SSH Key-Pair
+```bash
+ssh-keygen -t mldsa44-ed25519 -f ~/.ssh/id_mldsa44_ed25519 -N "" -C "Node B's Quantum Safe SSH Key, No Passphrase"
+```
+
+<br>
+
+Generating Host Key
+```bash
+sudo ssh-keygen -t mldsa44-ed25519 -f /etc/ssh/ssh_host_mldsa44_ed25519_key -N "" -C "Node B's Quantum Safe Host Key, No Passphrase"
+```
+
+<br>
+
+Copy the Public Key to Node B
+
+```bash
+scp ~/.ssh/id_mldsa44_ed25519.pub username@<NODE_A_IP>:/home/username/nodeB.pub
+```
+
+Append it to `authorized_keys`
+
+```bash
+ssh username@<NODE_A_IP> "cat /home/username/nodeB.pub >> ~/.ssh/authorized_keys && rm /home/username/nodeB.pub"
+```
+
+<br>
+
+Bypassing First Time Signature Message
+
+```bash
+ssh-keyscan -t mldsa44-ed25519 <NODE_A_IP> >> ~/.ssh/known_hosts
+```
+
+<br>
+
+Connect from Node B to A 
+```bash
+ssh -i ~/.ssh/id_mldsa44_ed25519 username@<NODE_A_IP>
+```
+
+<br>
+
+Automating Node to Node connection by editing `~/.ssh/config`, set the permission `chmod -v 600 ~/.ssh/config`
+
+After this connecting from Node B to A is `ssh nodea`
+
+```txt
+Host nodea
+    HostName <NODE_A_IP>
+    User username
+    IdentityFile ~/.ssh/id_mldsa44_ed25519
+```
+
+<br>
+
+Finally test and restart the `ssh` service
+```bash
+sudo sshd -t
+```
+```bash
+sudo systemctl restart ssh
+```
+
+<br>
