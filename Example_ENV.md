@@ -26,6 +26,7 @@
 
 ```
 
+<br>
 
 # Connection Specifications
 
@@ -34,6 +35,13 @@
 | **WIN <--> NODE A/B** | `mlkem768x25519-sha256` | `ssh-ed25519` | `ssh-ed25519` |
 | **NODE A <--> NODE B** | `mlkem768x25519-sha256` | `ssh-mldsa44-ed25519` | `ssh-mldsa44-ed25519` |
 
+
+> [!CAUTION]
+> Both **Node A** and **Node B** have passphrase-less SSH keys as this is easier for machine to machine communication for scripts.
+>
+> **THIS IS NOT RECOMMENDED FOR MACHINES THAT REQUIRE HUMAN INTERACTION**
+
+<br>
 
 # Setting Up Node A
 
