@@ -45,6 +45,11 @@
 
 # Setting Up Node A
 
+> [!NOTE]
+> If using `scp` to move keys back and forth is recommended to wipe `known_hosts` and `known_hosts.old` at the end
+> 
+> Who recommended this? Me. Why? Because I want to.
+
 Generating SSH Key-Pair
 ```bash
 ssh-keygen -t mldsa44-ed25519 -f ~/.ssh/id_mldsa44_ed25519 -N "" -C "Node A's Quantum Safe SSH Key, No Passphrase"
@@ -56,3 +61,13 @@ Generating Host Key
 ```bash
 sudo ssh-keygen -t mldsa44-ed25519 -f /etc/ssh/ssh_host_mldsa44_ed25519_key -N "" -C "Node A's Quantum Safe Host Key, No Passphrase"
 ```
+
+<br>
+
+Copy the Public Key to Node B
+
+```bash
+scp ~/.ssh/id_mldsa44_ed25519.pub username@<NODE_B_IP>:/home/username/nodeA.pub
+```
+
+Append it to `authorized_keys`
