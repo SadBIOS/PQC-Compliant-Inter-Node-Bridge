@@ -38,7 +38,7 @@ Once everything has been downloaded run the final command.
 
 # Automatic Installation for Airgapped Machines
 
-This method can be used to deploy the required packages onto isolated networks. First resolve dependencies;
+This method can be used to deploy the required packages onto isolated networks. For ease of use place the scripts inside a directory so that all the downloaded files are in one location thus making it easy to distribute between devices.
 
 
 # Manual Installation
