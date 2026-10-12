@@ -186,3 +186,90 @@ sudo systemctl restart ssh
 ```
 
 <br>
+
+# Common Settings for Both Linux Nodes
+
+<details>
+
+<summary>Access Hardening</summary>
+
+The following is the contents for <code>/etc/ssh/sshd_config.d/99-hardened.conf</code>
+
+> <details>
+> 
+> <summary>With a non-PQC compliant entry point (Microsoft Winows<sup>®</sup>)</summary>
+> 
+> ```txt
+> PubkeyAuthentication yes
+> PasswordAuthentication no
+> ChallengeResponseAuthentication no
+> KbdInteractiveAuthentication no
+> PermitRootLogin no
+> 
+> HostKey /etc/ssh/ssh_host_mldsa44_ed25519_key
+> HostKey /etc/ssh/ssh_host_ed25519_key
+> 
+> KexAlgorithms mlkem768x25519-sha256
+> 
+> PubkeyAcceptedAlgorithms ssh-mldsa44-ed25519,ssh-ed25519
+> 
+> HostKeyAlgorithms ssh-mldsa44-ed25519,ssh-ed25519
+> ```
+> 
+> </details>
+>
+> <br> 
+>
+> <details>
+> 
+> <summary>Complete/Strict PQC compliant setup</summary>
+> 
+> ```txt
+> PubkeyAuthentication yes
+> PasswordAuthentication no
+> ChallengeResponseAuthentication no
+> KbdInteractiveAuthentication no
+> PermitRootLogin no
+> 
+> HostKey /etc/ssh/ssh_host_mldsa44_ed25519_key
+> 
+> KexAlgorithms mlkem768x25519-sha256
+> 
+> PubkeyAcceptedAlgorithms ssh-mldsa44-ed25519
+> 
+> HostKeyAlgorithms ssh-mldsa44-ed25519
+> ```
+> 
+> </details>
+> 
+> </details>
+
+
+<details>
+
+<summary>Permission Assignment</summary>
+
+```bash
+sudo chown -v username:username /home/username
+```
+
+```bash
+sudo chmod -v 755 /home/username
+```
+
+```bash
+sudo chown -Rv username:username /home/username/.ssh
+```
+
+```bash
+sudo chmod -v 700 /home/username/.ssh
+```
+
+```bash
+sudo chmod -v 600 /home/username/.ssh/authorized_keys
+```
+
+</details>
+
+<br>
+
