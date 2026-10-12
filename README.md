@@ -67,14 +67,14 @@ This method is recommended on interned dependent machines. Yes, if you want you 
 
 <br>
 
-Install Dependencies
+Install dependencies.
 ```bash
 sudo apt install -y build-essential zlib1g-dev libssl-dev libpam0g-dev libselinux1-dev wget micro perl tar pkg-config ca-certificates rsync
 ```
 
 <br>
 
-Download OpenSSH and OpenSSL™ Source code
+Download OpenSSH and OpenSSL™ source code.
 ```bash
 wget https://github.com/openssl/openssl/releases/download/openssl-4.0.3/openssl-4.0.3.tar.gz; wget https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.6p1.tar.gz
 ```
@@ -86,21 +86,21 @@ wget https://github.com/openssl/openssl/releases/download/openssl-4.0.3/openssl-
 
 ## Building OpenSSL™
 
-Extract the downloaded OpenSSL™ source code archive
+Extract the downloaded OpenSSL™ source code archive.
 ```bash
 tar -xzvf openssl-4.0.3.tar.gz; cd openssl-4.0.3
 ```
 
 <br>
 
-Inside the extracted directory run
+Run the following inside the extracted directory.
 ```bash
 ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
 ```
 
 <br>
 
-Once configured compile
+Once configured compile.
 ```bash
 make -j $(nproc)
 ```
@@ -117,19 +117,27 @@ Test the current build
 LD_LIBRARY_PATH="$PWD" ./apps/openssl version
 ```
 
-If everything seems alright add new OpenSSL™ library path to systems dynamic linker configuration
+If everything seems alright add new OpenSSL™ library path to systems dynamic linker configuration.
 ```bash
 echo "/usr/local/ssl/lib64" | sudo tee /etc/ld.so.conf.d/openssl-4.0.conf
 ```
 
-Refresh the system's shared library cache
+Refresh the system's shared library cache.
 ```bash
 sudo ldconfig -v
 ```
 
 <br>
 
-Finally as a precaution back up the existing OpenSSL™ binary and create a symbolic link that points the standard systems command to the newly compiled version
+Finally as a precaution back up the existing OpenSSL™ binary and create a symbolic link that points the standard systems command to the newly compiled version.
 ```bash
 sudo mv -v /usr/bin/openssl /usr/bin/openssl.bak; sudo ln -sv /usr/local/ssl/bin/openssl /usr/bin/openssl
 ```
+
+## Building OpenSSH
+
+All the required dependencies have already been resolved during the first part of the build (along with downloading the source code for OpenSSH). To start building first extract and change the working directory.
+```bash
+tar -xzvf openssh-10.6p1.tar.gz; cd openssh-10.6p1
+```
+
