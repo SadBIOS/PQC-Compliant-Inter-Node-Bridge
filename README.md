@@ -15,6 +15,8 @@ This repository is mainly designed to add custom/latest builds of **OpenSSH** an
 >
 > Well what do you expect from **MicroSlop**
 
+> [!CAUTION]
+> Replacing the core system OpenSSL™ (`/usr/bin/openssl`) on Linux distributions can sometimes break package managers or system tools that rely on the specific version provided by your OS vendor.
 
 # Automatic Installation for Internet Connected Devices
 
