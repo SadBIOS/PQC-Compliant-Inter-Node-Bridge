@@ -22,11 +22,12 @@ Download the scripts and go the directory where the scripts are contained (this 
 ```bash
 chmod +x -v *.sh
 ```
-<br>
 This will activate the scripts once that is done just copy and paste the following commands. Please review the scripts before running this (this should be standard practice for any/all scripts from unknown sources).
+<br>
 
+Run the following commands to resolve compilation dependencies
 ```bash
 ./setup.sh --ins-deps-onln
 ```
-<br>
+
 Once everything has been downloaded run the final command.
