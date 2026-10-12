@@ -3,9 +3,9 @@
 
 ```text
     ┌────────────────────────────────────────────────────────────────────────┐
-    │                                  WIN                                   │
-    │            Windows 11 Pro (OpenSSH_for_Windows_10.0p2)                 │
-    │                         LibreSSL 4.2.0                                 │
+    │                                    WIN                                 │
+    │                 Windows 11 Pro (OpenSSH_for_Windows_10.0p2)            │
+    │                               LibreSSL 4.2.0                           │
     └────────────────────────────┬──────────────────┬────────────────────────┘
                                  │                  │
       KEX: mlkem768x25519-sha256 │                  │ KEX: mlkem768x25519-sha256
@@ -16,8 +16,8 @@
                  ┌──────────────────────┐    ┌──────────────────────┐
                  │        NODE A        │    │        NODE B        │
                  │    Debian (vm1)      │◄──►│     Debian (vm2)     │
-                 │   OpenSSH_10.6p1     │    │   OpenSSH_10.6p1     │
-                 │   OpenSSL 4.0.3      │    │   OpenSSL 4.0.3      │
+                 │    OpenSSH_10.6p1    │    │    OpenSSH_10.6p1    │
+                 │    OpenSSL 4.0.3     │    │    OpenSSL 4.0.3     │
                  └──────────────────────┘    └──────────────────────┘
                                     \          /
                                      \        /
