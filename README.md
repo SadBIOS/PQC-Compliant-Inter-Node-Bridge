@@ -180,3 +180,5 @@ sudo systemctl restart ssh
 
 
 # Example Setup
+
+A two Debian<sup>®</sup> node setup with one Microsoft Windows<sup>®</sup> entry point. The two nodes have a tunnel that is fully **NIST PQC Security Category 3** compliant tunnel and one exception. Check out the system setup [guide](https://github.com/SadBIOS/PQC-Compliant-Inter-Node-Bridge/blob/main/Example_ENV.md) here.
