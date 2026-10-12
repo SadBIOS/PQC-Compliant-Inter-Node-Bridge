@@ -6,10 +6,15 @@ This repository is mainly designed to add custom/latest builds of **OpenSSH** an
   <h3 style="margin: 0; padding: 0;">The Alphabet Boys Can See Everything</h3>
   <p style="margin: 0; padding: 0;">Now they are coming for your mind</p>
 </div>
+<br>
 
 > [!WARNING]
 > A controlled "low security" i.e. non PQC compliant entrypoint has been introduced on purpose as unfortunately Microsoft Windows<sup>®</sup> does not feature a fully capable OpenSSH and LibreSSL build with our required features.
 > 
-> **YES THIS IS A SECURITY VULNERABILITY**
+> **AND YES THIS IS A SECURITY VULNERABILITY**
 >
 > Well what do you expect from **MicroSlop**
+
+# Automatic Installation
+
+Download the scripts and go the directory where the scripts are contained (this example will assume that they are placed in `$HOME`)
