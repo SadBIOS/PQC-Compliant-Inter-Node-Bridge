@@ -83,3 +83,16 @@ wget https://github.com/openssl/openssl/releases/download/openssl-4.0.3/openssl-
 > When compiling OpenSSH with a custom version of OpenSSL™ (instead of using the system's default) OpenSSL™ must be built first because OpenSSH has a direct and hard dependency on development files from OpenSSL™ during its build process.
 
 ### Building OpenSSL™
+
+Extract the downloaded OpenSSL™ source code archive
+```bash
+tar -xzvf openssl-4.0.3.tar.gz; cd openssl-4.0.3
+```
+
+<br>
+
+Inside the extracted directory run
+```bash
+./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+```
+<br>
