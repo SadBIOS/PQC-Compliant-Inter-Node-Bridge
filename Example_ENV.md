@@ -1,4 +1,3 @@
-
 # Network Topology and Security Configuration
 
 ```text
@@ -27,6 +26,7 @@
 
 ```
 
+
 # Connection Specifications
 
 | Connection Link | Key Exchange (KEX) | Public Key Algorithm | Host Key Algorithm |
@@ -35,3 +35,16 @@
 | **NODE A <--> NODE B** | `mlkem768x25519-sha256` | `ssh-mldsa44-ed25519` | `ssh-mldsa44-ed25519` |
 
 
+# Setting Up Node A
+
+Generating SSH Key-Pair
+```bash
+ssh-keygen -t mldsa44-ed25519 -f ~/.ssh/id_mldsa44_ed25519 -N "" -C "Node A's Quantum Safe SSH Key, No Passphrase"
+```
+
+<br>
+
+Generating Host Key
+```bash
+sudo ssh-keygen -t mldsa44-ed25519 -f /etc/ssh/ssh_host_mldsa44_ed25519_key -N "" -C "Node A's Quantum Safe Host Key, No Passphrase"
+```
