@@ -75,3 +75,43 @@ Append it to `authorized_keys`
 ```bash
 ssh username@<NODE_B_IP> "cat /home/username/nodeA.pub >> ~/.ssh/authorized_keys && rm /home/username/nodeA.pub"
 ```
+
+<br>
+
+Bypassing First Time Signature Message
+
+```bash
+ssh-keyscan -t mldsa44-ed25519 <NODE_B_IP> >> ~/.ssh/known_hosts
+```
+
+<br>
+
+Connect from Node A to B 
+```bash
+ssh -i ~/.ssh/id_mldsa44_ed25519 username@<NODE_B_IP>
+```
+
+<br>
+
+Automating Node to Node connection by editing `~/.ssh/config`, set the permission `chmod -v 600 ~/.ssh/config`
+
+After this connecting from Node A to B is `ssh nodeb`
+
+```txt
+Host nodea
+    HostName <NODE_B_IP>
+    User username
+    IdentityFile ~/.ssh/id_mldsa44_ed25519
+```
+
+<br>
+
+Finally test and restart the `ssh` service
+```bash
+sudo sshd -t
+```
+```bash
+sudo systemctl restart ssh
+```
+
+<br>
