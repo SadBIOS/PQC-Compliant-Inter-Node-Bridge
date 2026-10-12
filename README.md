@@ -95,4 +95,17 @@ Inside the extracted directory run
 ```bash
 ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
 ```
+
+<br>
+
+Once configured compile
+```bash
+make -j $(nproc)
+```
+
+After compilation, copy compiled libraries, binaries and header files to `/usr/local/ssl`
+```bash
+sudo make install
+```
+
 <br>
