@@ -15,10 +15,10 @@ This repository is mainly designed to add custom/latest builds of **OpenSSH** an
 >
 > Well what do you expect from **MicroSlop**
 
+
 # Automatic Installation
 
 Download the scripts and go the directory where the scripts are contained (this example will assume that they are placed in `$HOME` and it is empty) and run the following comnands
-
 ```bash
 chmod +x -v *.sh
 ```
@@ -30,5 +30,7 @@ Run the following commands to resolve compilation dependencies
 ```bash
 ./setup.sh --ins-deps-onln
 ```
-
 Once everything has been downloaded run the final command.
+```bash
+./setup.sh --build-all
+```
