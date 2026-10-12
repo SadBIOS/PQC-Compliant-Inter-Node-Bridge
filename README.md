@@ -162,4 +162,13 @@ If everything seems up to the mark install the newly compiled OpenSSH to the sys
 ```bash
 sudo make install
 ```
+
+Finally, restart the OpenSSH service.
+```bash
+sudo systemctl restart ssh
+```
+
 <br>
+
+
+# Example Setup
