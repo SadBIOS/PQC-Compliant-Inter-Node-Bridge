@@ -26,7 +26,7 @@ This will activate the scripts once that is done just copy and paste the followi
 
 <br>
 
-Run the following commands to resolve compilation dependencies
+Run the following commands to resolve compilation dependencies.
 ```bash
 ./setup.sh --ins-deps-onln
 ```
