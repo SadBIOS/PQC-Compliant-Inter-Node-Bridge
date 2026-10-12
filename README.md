@@ -61,3 +61,6 @@ Finally install the packages (similarly as before).
 
 # Manual Installation
 
+There are two methods this 
+1. Building on Internet Connected Machines
+2. Building on Airgapped Machines
