@@ -88,6 +88,7 @@ wget https://github.com/openssl/openssl/releases/download/openssl-4.0.3/openssl-
 > [!WARNING]
 > When compiling OpenSSH with a custom version of OpenSSL™ (instead of using the system's default) OpenSSL™ must be built first because OpenSSH has a direct and hard dependency on development files from OpenSSL™ during its build process.
 
+<br>
 
 ## Building OpenSSL™
 
@@ -138,6 +139,8 @@ Finally as a precaution back up the existing OpenSSL™ binary and create a symb
 ```bash
 sudo mv -v /usr/bin/openssl /usr/bin/openssl.bak; sudo ln -sv /usr/local/ssl/bin/openssl /usr/bin/openssl
 ```
+
+<br>
 
 ## Building OpenSSH
 
