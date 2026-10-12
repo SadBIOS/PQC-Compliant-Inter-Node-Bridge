@@ -16,7 +16,7 @@ This repository is mainly designed to add custom/latest builds of **OpenSSH** an
 > Well what do you expect from **MicroSlop**
 
 
-# Automatic Installation For Internet Connected Devices
+# Automatic Installation for Internet Connected Devices
 
 Download the scripts and go the directory where the scripts are contained (this example will assume that they are placed in `$HOME` and it is empty) and run the following commands
 ```bash
