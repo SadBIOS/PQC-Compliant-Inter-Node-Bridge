@@ -38,6 +38,6 @@ Once everything has been downloaded run the final command.
 
 # Automatic Installation for Airgapped Machines
 
-This method can be used to deploy the required packages onto network connected devices
+This method can be used to deploy the required packages onto isolated networks 
 
 # Manual Installation
