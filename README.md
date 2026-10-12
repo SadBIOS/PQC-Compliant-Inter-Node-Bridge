@@ -53,4 +53,9 @@ After copying/distributing the files among the nodes install dependencies.
 
 <br>
 
+Finally install the packages (similarly as before).
+```bash
+./setup.sh --build-all
+```
+
 # Manual Installation
