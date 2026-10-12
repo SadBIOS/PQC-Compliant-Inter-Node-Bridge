@@ -109,3 +109,20 @@ sudo make install
 ```
 
 <br>
+
+Test the current build
+```bash
+LD_LIBRARY_PATH="$PWD" ./apps/openssl version
+```
+
+If everything seems alright add new OpenSSL™ library path to systems dynamic linker configuration
+```bash
+echo "/usr/local/ssl/lib64" | sudo tee /etc/ld.so.conf.d/openssl-4.0.conf
+```
+
+Refresh the system's shared library cache
+```bash
+sudo ldconfig -v
+```
+
+<br>
