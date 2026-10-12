@@ -61,9 +61,12 @@ Finally install the packages (similarly as before).
 
 # Manual Installation
 
-There are two methods this 
-1. Building on Internet Connected Machines
+This method is recommended on interned dependent machines. Yes, if you want you can read the script and prepare the build system for transferring into airgapped nodes.
 
-&emsp;&emsp;this
+<br>
 
-2. Building on Airgapped Machines
+Install Dependencies
+```bash
+sudo apt install -y build-essential zlib1g-dev libssl-dev libpam0g-dev libselinux1-dev wget micro perl tar pkg-config ca-certificates rsync
+```
+
