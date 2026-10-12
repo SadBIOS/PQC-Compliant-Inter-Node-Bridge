@@ -46,6 +46,6 @@ This will download all the required files inside the root directory of the scrip
 
 <br>
 
-asd
+After copying/distributing the files among the nodes
 
 # Manual Installation
