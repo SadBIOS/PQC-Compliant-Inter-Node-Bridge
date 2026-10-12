@@ -18,6 +18,8 @@ This repository is mainly designed to add custom/latest builds of **OpenSSH** an
 > [!CAUTION]
 > Replacing the core system OpenSSL™ (`/usr/bin/openssl`) on Linux distributions can sometimes break package managers or system tools that rely on the specific version provided by your OS vendor.
 
+<br>
+
 # Automatic Installation for Internet Connected Devices
 
 Download the scripts and go the directory where the scripts are contained (this example will assume that they are placed in `$HOME` and it is empty) and run the following commands
@@ -37,6 +39,7 @@ Once everything has been downloaded run the final command.
 ./setup.sh --build-all
 ```
 
+<br>
 
 # Automatic Installation for Airgapped Machines
 
@@ -60,6 +63,7 @@ Finally install the packages (similarly as before).
 ./setup.sh --build-all
 ```
 
+<br>
 
 # Manual Installation
 
@@ -83,6 +87,7 @@ wget https://github.com/openssl/openssl/releases/download/openssl-4.0.3/openssl-
 
 > [!WARNING]
 > When compiling OpenSSH with a custom version of OpenSSL™ (instead of using the system's default) OpenSSL™ must be built first because OpenSSH has a direct and hard dependency on development files from OpenSSL™ during its build process.
+
 
 ## Building OpenSSL™
 
