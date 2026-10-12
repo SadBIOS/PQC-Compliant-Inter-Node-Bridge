@@ -80,4 +80,4 @@ wget https://github.com/openssl/openssl/releases/download/openssl-4.0.3/openssl-
 <br>
 
 > [!WARNING]
-> When compiling OpenSSH with a custom version of OpenSSL™ (instead of using the system's default) OpenSSL™ must be built first because OpenSSH has a direct and hard dependency on OpenSSL™'s development files during its build process.
+> When compiling OpenSSH with a custom version of OpenSSL™ (instead of using the system's default) OpenSSL™ must be built first because OpenSSH has a direct and hard dependency on development files from OpenSSL™ during its build process.
