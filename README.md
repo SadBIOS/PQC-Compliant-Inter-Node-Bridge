@@ -158,4 +158,8 @@ Upon completion check the version of the version of the compiled binary.
 ./ssh -V
 ```
 
+If everything seems up to the mark install the newly compiled OpenSSH to the system.
+```bash
+sudo make install
+```
 <br>
