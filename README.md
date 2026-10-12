@@ -46,6 +46,11 @@ This will download all the required files inside the root directory of the scrip
 
 <br>
 
-After copying/distributing the files among the nodes
+After copying/distributing the files among the nodes install dependencies.
+```bash
+./setup.sh --inst-deps-ofln
+```
+
+<br>
 
 # Manual Installation
