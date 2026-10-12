@@ -17,4 +17,4 @@ This repository is mainly designed to add custom/latest builds of **OpenSSH** an
 
 # Automatic Installation
 
-Download the scripts and go the directory where the scripts are contained (this example will assume that they are placed in `$HOME`)
+Download the scripts and go the directory where the scripts are contained (this example will assume that they are placed in `$HOME` and it is empty)
