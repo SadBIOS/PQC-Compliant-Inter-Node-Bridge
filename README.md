@@ -141,3 +141,21 @@ All the required dependencies have already been resolved during the first part o
 tar -xzvf openssh-10.6p1.tar.gz; cd openssh-10.6p1
 ```
 
+<br>
+
+Once inside the directory run the following command to configure everything for the build.
+```bash
+./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-ssl-dir=/usr/local/ssl LDFLAGS="-Wl,-rpath,/usr/local/ssl/lib64"
+```
+
+After this compile everything.
+```bash
+make -j $(nproc)
+```
+
+Upon completion check the version of the version of the compiled binary.
+```bash
+./ssh -V
+```
+
+<br>
