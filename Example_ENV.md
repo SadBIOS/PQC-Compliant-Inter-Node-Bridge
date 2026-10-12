@@ -280,3 +280,61 @@ sudo chmod -v 600 /home/username/.ssh/authorized_keys
 - To use `rsync`, `--no-perms` must be added. Or else permissions get messed up and subsequent ssh sessions fail. also, replace node_a_user@node_a_IP to nodea vice versa
 
 <br>
+
+# Setting up Microsoft Winows<sup>®</sup> Entry Point
+
+Generate keys on the windows client
+
+This key must have a passkey (unless the user wants random threat actors having a rave party inside the cluster)
+
+```powershell
+ssh-keygen -t ed25519 -f "$HOME\.ssh\id_ed25519" -C "Microsoft Windows SSH Key, !! NOT QUANTUM SAFE !!"
+```
+
+<br>
+
+Send Windows SSH Key to Node A:
+```powershell
+scp "$HOME\.ssh\id_ed25519.pub" username@<NODE_A_IP>:/home/username/windows_key.pub
+```
+
+```powershell
+ssh username@<NODE_A_IP> "cat /home/username/windows_key.pub >> ~/.ssh/authorized_keys && rm /home/username/windows_key.pub"
+```
+
+Send Windows SSH Key to Node B:
+```powershell
+scp "$HOME\.ssh\id_ed25519.pub" username@<NODE_B_IP>:/home/username/windows_key.pub
+```
+
+```powershell
+ssh username@<NODE_B_IP> "cat /home/username/windows_key.pub >> ~/.ssh/authorized_keys && rm /home/username/windows_key.pub"
+```
+
+<br>
+
+SSH to either Node
+
+```powershell
+ssh -i "$HOME\.ssh\id_ed25519" username@<NODE_A_IP>
+```
+
+```powershell
+ssh -i "$HOME\.ssh\id_ed25519" username@<NODE_B_IP>
+```
+
+<br>
+
+Set the content of `"$HOME\.ssh\config"` to the following (this ia an optional but highly recommended for quality of life improvement). Doing this will allow connecting by simply typing `ssh nodea` or `ssh nodeb`
+
+```txt
+Host nodea
+    HostName <NODE_A_IP>
+    User username
+    IdentityFile ~/.ssh/id_ed25519
+
+Host nodeb
+    HostName <NODE_B_IP>
+    User username
+    IdentityFile ~/.ssh/id_ed25519
+```
